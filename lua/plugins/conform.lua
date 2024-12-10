@@ -18,11 +18,17 @@ return {
       -- disable "format_on_save lsp_fallback"
       local disable_filetypes = { c = true, cpp = true }
       local lsp_format_opt
+
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
       else
         lsp_format_opt = 'fallback'
       end
+
+      if vim.b[bufnr].disable_autoformat then
+        return
+      end
+
       return {
         timeout_ms = 500,
         lsp_format = lsp_format_opt,

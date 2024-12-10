@@ -16,6 +16,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_user_command('FormatDisable', function()
+  vim.b.disable_autoformat = true
+end, {
+  desc = 'Disable autoformat-on-save',
+})
+
+vim.api.nvim_create_user_command('FormatEnable', function()
+  vim.b.disable_autoformat = false
+end, {
+  desc = 'Re-enable autoformat-on-save',
+})
+
 vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_user_command('W', 'w', {})
 
