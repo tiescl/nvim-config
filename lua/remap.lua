@@ -12,6 +12,7 @@ vim.keymap.set('x', '<leader>y', [["*y]])
 
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 vim.keymap.set('n', '<leader>gs', '<cmd>tab G<CR>')
+vim.keymap.set('n', '<leader>gb', '<cmd>Git blame<CR>')
 vim.keymap.set('n', '<C-f>', '<cmd>!tmux neww tmux-sessionizer<CR>')
 
 -- diagnostic keymaps
