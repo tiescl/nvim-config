@@ -67,6 +67,7 @@ return {
     vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[S]earch [G]it [F]iles' })
     vim.keymap.set('n', '<leader>ps', builtin.grep_string, { desc = 'Search the string under cursor' })
+    vim.keymap.set('n', '<leader>lg', builtin.live_grep, { desc = 'Search the given string across the project' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
   end,
 }
