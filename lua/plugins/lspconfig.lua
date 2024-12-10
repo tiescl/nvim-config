@@ -97,6 +97,8 @@ return {
       clangd = {},
       ts_ls = {},
       cssls = {},
+      gopls = {},
+      pyright = {},
 
       lua_ls = {
         settings = {
