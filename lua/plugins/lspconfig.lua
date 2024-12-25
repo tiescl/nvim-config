@@ -99,6 +99,7 @@ return {
       cssls = {},
       gopls = {},
       pyright = {},
+      texlab = {},
 
       lua_ls = {
         settings = {
