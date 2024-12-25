@@ -14,6 +14,5 @@ return {
     vim.cmd.hi 'NormalNC guibg=#000000'
     vim.cmd.hi 'Comment gui=none'
     vim.cmd.hi 'TreesitterContextBottom gui=NONE'
-    vim.cmd 'hi TreesitterContextLineNumberBottom gui=NONE'
   end,
 }

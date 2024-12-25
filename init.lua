@@ -3,10 +3,12 @@ vim.g.have_nerd_font = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require 'set'
+-- require 'set'
 require 'remap'
 require 'lazy-init'
 require 'lazy-plugins'
+
+vim.cmd 'source ~/.config/nvim/lua/set2.vim'
 
 -- `:help lua-guide-autocommands`
 vim.api.nvim_create_autocmd('TextYankPost', {
