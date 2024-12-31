@@ -15,23 +15,13 @@ return {
   opts = {
     notify_on_error = true,
     format_on_save = function(bufnr)
-      -- disable "format_on_save lsp_fallback"
-      local disable_filetypes = { c = true, cpp = true }
-      local lsp_format_opt
-
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        lsp_format_opt = 'never'
-      else
-        lsp_format_opt = 'fallback'
-      end
-
       if vim.b[bufnr].disable_autoformat then
         return
       end
 
       return {
         timeout_ms = 500,
-        lsp_format = lsp_format_opt,
+        lsp_format = 'fallback',
       }
     end,
     formatters_by_ft = {
@@ -47,6 +37,13 @@ return {
       scss = { 'prettier' },
       yaml = { 'prettier' },
       markdown = { 'prettier' },
+      cpp = function(bufnr)
+        if require('conform').get_formatter_info('clang-format', bufnr).available then
+          return { 'clang-format' }
+        else
+          return {}
+        end
+      end,
     },
   },
 }
