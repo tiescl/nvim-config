@@ -95,22 +95,27 @@ return {
     local servers = {
       -- `:help lspconfig-all`
       clangd = {},
-      ts_ls = {},
-      cssls = {},
-      gopls = {},
       pyright = {},
-      texlab = {},
+    }
 
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
+    if os.getenv('HOME'):sub(-4) ~= 'root' then
+      servers = vim.tbl_deep_extend('error', servers, {
+        gopls = {},
+        texlab = {},
+        ts_ls = {},
+        cssls = {},
+
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
             },
           },
         },
-      },
-    }
+      })
+    end
 
     -- :Mason
     require('mason').setup()
@@ -132,6 +137,8 @@ return {
           require('lspconfig')[server_name].setup(server)
         end,
       },
+      ensure_installed = {},
+      automatic_installation = false,
     }
   end,
 }
